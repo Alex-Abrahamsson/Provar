@@ -1,0 +1,7 @@
+{
+  "leaf": false,
+  "children": [
+    { "text": "Hem", "iconCls": "x-fa fa-home", "xtype": "homeview", "leaf": true },
+    { "text": "Personal", "iconCls": "x-fa fa-heart", "xtype": "personnelview","leaf": true }
+  ]
+}
