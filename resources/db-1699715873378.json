@@ -4,7 +4,7 @@
       "id": 1,
       "firstName": "Alex",
       "lastName": "Abrahamsson",
-      "company": "Apple",
+      "company": "Tesla",
       "createdAt": "10-11-2023"
     },
     {
@@ -47,6 +47,13 @@
       "firstName": "Erik",
       "lastName": "",
       "company": "Blizzard",
+      "createdAt": "10-11-2023"
+    },
+    {
+      "id": 8,
+      "firstName": "Janne",
+      "lastName": "",
+      "company": "Uber",
       "createdAt": "10-11-2023"
     },
     {

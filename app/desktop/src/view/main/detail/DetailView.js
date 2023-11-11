@@ -96,22 +96,47 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                   xtype: 'container',
                   layout: 'hbox',
                   items: [
-                      {
-                          xtype: 'button',
-                          text: 'Spara',
-                          handler: function() {
-                              // handle the save action here
-                              console.log('save');
-                          }
-                      },
-                      {
-                          xtype: 'button',
-                          text: 'Ta bort',
-                          handler: function() {
-                              // handle the delete action here
-                              console.log('delete');
-                          }
+                    {
+                      xtype: 'button',
+                      text: 'Spara',
+                      handler: function() {
+                        var detailView = Ext.ComponentQuery.query('detailview')[0];
+                        var selectedPerson = detailView.getViewModel().get('selectedPerson');
+                
+                        // Send a PUT request to the server with the updated data
+                        Ext.Ajax.request({
+                            url: 'http://localhost:3000/items/' + selectedPerson.id,
+                            method: 'PUT',
+                            jsonData: selectedPerson,
+                            success: function(response) {
+                                console.log('Data updated successfully');
+                            },
+                            failure: function(response) {
+                                console.log('An error occurred: ' + response.responseText);
+                            }
+                        });
                       }
+                    },
+                    {
+                      xtype: 'button',
+                      text: 'Ta bort',
+                      handler: function() {
+                          var detailView = Ext.ComponentQuery.query('detailview')[0];
+                          var selectedPerson = detailView.getViewModel().get('selectedPerson');
+                  
+                          // Send a DELETE request to the server
+                          Ext.Ajax.request({
+                              url: 'http://localhost:3000/items/' + selectedPerson.id,
+                              method: 'DELETE',
+                              success: function(response) {
+                                  console.log('Person deleted successfully');
+                              },
+                              failure: function(response) {
+                                  console.log('An error occurred: ' + response.responseText);
+                              }
+                          });
+                      }
+                  }
                   ]
               }
           ]
