@@ -38,7 +38,6 @@
 Ext.define('MyExtGenApp.view.main.detail.DetailView', {
   extend: 'Ext.Container',
   xtype: 'detailview',
-  cls: 'detailview',
   layout: 'vbox',
   viewModel: {
     data: {
@@ -48,23 +47,20 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
   items: [
       {
           xtype: 'container',
-          cls: 'detailview',
-          style: 'border: 1px solid black; background-color: lightGray; display: flex; flex-direction: column; flex: 1; margin: 10px;',
+          style: 'border: 1px solid black; display: flex; flex-direction: column; flex: 1; margin: 16px; padding: 16px;',
           layout: 'vbox',
           items: [
               {
                   xtype: 'component',
-                  cls: 'detailview-header',
                   html: '<div class="detailview-header-title"><h3>Kunduppgifter</h3></div>'
               },
               {
                   xtype: 'container',
-                  cls: 'detailview-content',
                   layout: 'vbox',
                   items: [
                       {
                           xtype: 'container',
-                          cls: 'row',
+                          style: 'border: 1px solid blue;',
                           layout: 'hbox',
                           items: [
                               {
@@ -81,7 +77,7 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                       },
                       {
                           xtype: 'container',
-                          cls: 'row',
+                          style: 'border: 1px solid green;',
                           layout: 'hbox',
                           items: [
                               {
@@ -97,16 +93,22 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                           ]
                       },
                       {
-                          xtype: 'component',
-                          bind: {
-                              html: '<div class="detailview-content-text">Företag: {selectedPerson.company}</div>'
-                          }
-                      },
-                      {
-                          xtype: 'component',
-                          bind: {
-                              html: '<div class="detailview-content-text">Skapad: {selectedPerson.createdAt}</div>'
-                          }
+                          xtype: 'container',
+                          style: 'border: 1px solid green;',
+                          layout: 'hbox',
+                          items: [
+                              {
+                                  xtype: 'component',
+                                  style: 'margin-right: 10px;',
+                                  html: '<p>Företag: </p>'
+                              },
+                              {
+                                  xtype: 'button',
+                                  scale: 'medium',
+                                  text: 'Företag',
+                                  bind: '{selectedPerson.company}'
+                              }
+                          ]
                       }
                   ]
               },
