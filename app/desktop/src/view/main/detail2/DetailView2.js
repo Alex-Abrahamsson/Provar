@@ -100,24 +100,24 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                             style: 'background-color: #17851B; color: #fff; border-radius: 4px;',
                             handler: function () {
                                 // Hämta detailView2 instansen
-                                var detailView2 =
+                                let detailView2 =
                                     Ext.ComponentQuery.query('detailview2')[0];
 
                                 // Hämta input data från textfält och combobox
-                                var firstName = detailView2
+                                let firstName = detailView2
                                     .down('textfield[placeholder="Förnamn..."]')
                                     .getValue();
-                                var lastName = detailView2
+                                let lastName = detailView2
                                     .down(
                                         'textfield[placeholder="Efternamn..."]'
                                     )
                                     .getValue();
-                                var company = detailView2
+                                let company = detailView2
                                     .down('combobox')
                                     .getValue();
 
                                 // Skapa ett kund objekt med input data från textfält och combobox samt ett unikt ID och dagens datum
-                                var newPerson = {
+                                let newPerson = {
                                     id: Date.now().toString(), // Datum nanosekunder som ID
                                     createdAt: new Date().toLocaleDateString(), // Formatera datum till ISO format
                                     firstName: firstName,
@@ -150,10 +150,10 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                             style: 'background-color: #ff0000; color: #fff; border-radius: 4px;',
                             handler: function () {
                                 // Hämta mainView instansen
-                                var mainView =
+                                let mainView =
                                     Ext.ComponentQuery.query('mainview')[0];
                                 // Hämta mainView instansens viewModel
-                                var vm = mainView.getViewModel();
+                                let vm = mainView.getViewModel();
                                 // Sätt detail2Collapsed till true
                                 vm.set('detail2Collapsed', true);
                             },

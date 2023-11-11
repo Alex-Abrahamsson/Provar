@@ -93,7 +93,7 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                                     editable: false,
                                     listeners: {
                                         select: (combo, record, eOpts) => {
-                                            var detailView =
+                                            let detailView =
                                                 Ext.ComponentQuery.query(
                                                     'detailview'
                                                 )[0];
@@ -121,9 +121,9 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                             margin: 16,
                             style: 'background-color: #17851B; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                var detailView =
+                                let detailView =
                                     Ext.ComponentQuery.query('detailview')[0];
-                                var selectedPerson = detailView
+                                let selectedPerson = detailView
                                     .getViewModel()
                                     .get('selectedPerson');
 
@@ -156,9 +156,9 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                             margin: 16,
                             style: 'background-color: #ff0000; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                var detailView =
+                                let detailView =
                                     Ext.ComponentQuery.query('detailview')[0];
-                                var selectedPerson = detailView
+                                let selectedPerson = detailView
                                     .getViewModel()
                                     .get('selectedPerson');
 

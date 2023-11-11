@@ -54,14 +54,14 @@
       "createdAt": "2023-11-11T23:09:27.766Z",
       "firstName": "Håkan",
       "lastName": "Abrahamsson",
-      "company": null
+      "company": "Apple"
     },
     {
-      "id": "1699744334284",
+      "id": "1699744923380",
       "createdAt": "2023-11-12",
-      "firstName": "Sven",
+      "firstName": "Magnus",
       "lastName": "Österlund",
-      "company": "Balder"
+      "company": "SEB"
     }
   ]
 }

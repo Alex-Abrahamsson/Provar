@@ -5,7 +5,7 @@ Ext.define('MyExtGenApp.view.main.nav.NavViewController', {
 	initViewModel: function(vm) {},
 
 	onTopViewNavToggle: function () {
-		var vm = this.getViewModel();
+		let vm = this.getViewModel();
 		vm.set('navCollapsed', !vm.get('navCollapsed'));
 	},
 
