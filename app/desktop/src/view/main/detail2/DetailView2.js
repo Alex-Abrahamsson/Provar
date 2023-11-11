@@ -2,21 +2,16 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
     extend: 'Ext.Container',
     xtype: 'detailview2',
     layout: 'vbox',
-    viewModel: {
-        data: {
-            selectedPerson: null,
-        },
-    },
     style: 'background-color: #0001;',
     items: [
         {
             xtype: 'container',
-            style: 'background-color: #f5f5f5; border: 3px solid #17851B; border-radius: 8px; display: flex; flex-direction: column; flex: 1; max-height: 300px; margin: auto 16px; padding: 8px;',
+            style: 'background-color: #f5f5f5; border: 3px solid #17851B; border-radius: 8px; display: flex; flex-direction: column; flex: 1; margin: 8px auto; padding: 8px; min-width: 400px;',
             layout: 'vbox',
             items: [
                 {
                     xtype: 'component',
-                    html: '<h3>Kunduppgifter</h3>',
+                    html: '<h3>Lägg till ny kund</h3>',
                 },
                 {
                     xtype: 'container',
@@ -36,7 +31,6 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                                     flex:1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     placeholder: 'Förnamn...',
-                                    bind: '{selectedPerson.firstName}',
                                 },
                             ],
                         },
@@ -54,7 +48,6 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                                     flex:1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     placeholder: 'Efternamn...',
-                                    bind: '{selectedPerson.lastName}',
                                 },
                             ],
                         },
@@ -88,23 +81,8 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                                     },
                                     valueField: 'company',
                                     displayField: 'company',
-                                    bind: '{selectedPerson.company}',
                                     queryMode: 'local',
                                     editable: false,
-                                    listeners: {
-                                        select: (combo, record, eOpts) => {
-                                            var detailView =
-                                                Ext.ComponentQuery.query(
-                                                    'detailview'
-                                                )[0];
-                                            detailView
-                                                .getViewModel()
-                                                .set(
-                                                    'selectedPerson.company',
-                                                    record.data.company
-                                                );
-                                        },
-                                    },
                                 },
                             ],
                         },
@@ -116,69 +94,55 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                     items: [
                         {
                             xtype: 'button',
-                            text: 'Spara',
+                            text: 'Lägg till',
                             flex: 1,
                             margin: 16,
                             style: 'background-color: #17851B; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                var detailView =
-                                    Ext.ComponentQuery.query('detailview')[0];
-                                var selectedPerson = detailView
-                                    .getViewModel()
-                                    .get('selectedPerson');
-
-                                // Send a PUT request to the server with the updated data
+                                // Get the DetailView2 instance
+                                var detailView2 = Ext.ComponentQuery.query('detailview2')[0];
+                        
+                                // Get the input data from the fields
+                                var firstName = detailView2.down('textfield[placeholder="Förnamn..."]').getValue();
+                                var lastName = detailView2.down('textfield[placeholder="Efternamn..."]').getValue();
+                                var company = detailView2.down('combobox').getValue();
+                        
+                                // Create a new person object with the input data, an ID, and a createdAt timestamp
+                                var newPerson = {
+                                    id: Date.now().toString(), // Generate a unique ID
+                                    createdAt: new Date().toISOString(), // Get the current date and time in ISO format
+                                    firstName: firstName,
+                                    lastName: lastName,
+                                    company: company
+                                };
+                        
+                                // Send a POST request to the server to create a new record
                                 Ext.Ajax.request({
-                                    url:
-                                        'http://localhost:3000/items/' +
-                                        selectedPerson.id,
-                                    method: 'PUT',
-                                    jsonData: selectedPerson,
+                                    url: 'http://localhost:3000/items',
+                                    method: 'POST',
+                                    jsonData: newPerson,
                                     success: function (response) {
-                                        console.log(
-                                            'Data updated successfully'
-                                        );
+                                        console.log('Data added successfully');
                                     },
                                     failure: function (response) {
-                                        console.log(
-                                            'An error occurred: ' +
-                                                response.responseText
-                                        );
+                                        console.log('An error occurred: ' + response.responseText);
                                     },
                                 });
                             },
                         },
                         {
                             xtype: 'button',
-                            text: 'Ta bort',
+                            text: 'Avbryt',
                             flex: 1,
                             margin: 16,
                             style: 'background-color: #ff0000; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                var detailView =
-                                    Ext.ComponentQuery.query('detailview')[0];
-                                var selectedPerson = detailView
-                                    .getViewModel()
-                                    .get('selectedPerson');
-
-                                // Send a DELETE request to the server
-                                Ext.Ajax.request({
-                                    url:
-                                        'http://localhost:3000/items/' +
-                                        selectedPerson.id,
-                                    method: 'DELETE',
-                                    success: function (response) {
-                                        console.log(
-                                            'Person deleted successfully'
-                                        );
-                                    },
-                                    failure: function (response) {
-                                        console.log(
-                                            'An error occurred: ' +
-                                                response.responseText
-                                        );
-                                    },
-                                });
+                                // Get the MainView instance
+                                var mainView = Ext.ComponentQuery.query('mainview')[0];
+                                // Get the ViewModel of the MainView
+                                var vm = mainView.getViewModel();
+                                // Set the detail2Collapsed property
+                                vm.set('detail2Collapsed', true);
                             },
                         },
                     ],

@@ -14,7 +14,7 @@ Ext.define('MyExtGenApp.view.main.MainViewModel', {
 		detailview_width:      200,
 		detailview_max_width: 500,
 		detailview_min_width:   0,
-		detailview2_height:    200,
+		detailview2_height:    300,
 		detailview2_max_height: 300,
 		detailview2_min_height: 0,
 		detail2Collapsed:    true,
@@ -27,8 +27,8 @@ Ext.define('MyExtGenApp.view.main.MainViewModel', {
 		detailview_width: function(get) {
 			return get('detailCollapsed') ? get('detailview_min_width') : get('detailview_max_width');
 		},
-		detailview2_width: function(get) {
-			return get('detail2Collapsed') ? get('detailview2_min_height') : get('detail2view_max_height');
+		detailview2_height: function(get) {
+			return get('detail2Collapsed') ? get('detailview2_min_height') : get('detailview2_max_height');
 		}
 	},
 	stores: {

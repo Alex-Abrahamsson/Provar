@@ -1,5 +1,3 @@
-Ext.require('MyExtGenApp.view.personal.PersonForm');
-
 Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
     extend: 'Ext.Panel',
     xtype: 'personnelview',
@@ -63,21 +61,7 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
         {
             text: 'Lägg till ny kund',
             style: 'background-color: #17851B; color: #fff; border-radius: 4px;',
-            handler: function() {
-                // Create a new instance of the form
-                var form = Ext.create('MyExtGenApp.view.personal.PersonForm', {
-                    floating: true,
-                    modal: true,
-                    centered: true,
-                    id: 'myForm'
-                });
-
-                // Add the form to the application's viewport
-                Ext.Viewport.add(form);
-    
-                // Show the form
-                form.show();
-            }
+            handler: 'handleAddNewCustomer',
         },
         '->',
         {
