@@ -2,7 +2,7 @@ Ext.define('MyExtGenApp.view.main.MainViewModel', {
 	extend: 'Ext.app.ViewModel',
 	alias: 'viewmodel.mainviewmodel',
 	data: {
-		name: 'MyExtGenApp',
+		name: 'Prov',
 		navCollapsed:       false,
 		navview_max_width:    150,
 		navview_min_width:     150,
@@ -10,7 +10,7 @@ Ext.define('MyExtGenApp.view.main.MainViewModel', {
 		bottomview_height:     50,
 		headerview_height:     50,
 		footerview_height:     50,
-		detailCollapsed:     false,
+		detailCollapsed:     true,
 		detailview_width:      200,
 		detailview_max_width: 500,
 		detailview_min_width:   0,

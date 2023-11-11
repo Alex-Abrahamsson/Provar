@@ -10,7 +10,7 @@ Ext.define('MyExtGenApp.view.main.nav.NavView', {
         {
             xtype: 'menuview', 
             reference: 'menuview', 
-            bind: {width: '{menuview_width}'}, 
+            bind: {width: '{menuview_width}'},
             listeners: { 
                 selectionchange: "onMenuViewSelectionChange"
             }

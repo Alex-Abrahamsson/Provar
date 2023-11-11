@@ -1,6 +1,7 @@
 Ext.define('MyExtGenApp.view.nav.menu.MenuView', {
     extend: 'Ext.list.Tree',
     xtype: 'menuview',
+    style: 'background-color: #17851B;',
     viewModel: {},
     ui: 'nav',
     requires: [
