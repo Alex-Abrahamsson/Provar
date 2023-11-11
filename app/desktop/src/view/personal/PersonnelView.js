@@ -13,6 +13,7 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
         viewModel: {type: 'personnelviewmodel'},
         store: {type: 'personnelviewstore'},
         grouped: true,
+        style: 'background-color: #0001;',
         groupFooter: {
             xtype: 'gridsummaryrow'
         },
@@ -61,12 +62,14 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
     tbar: [
         {
             text: 'Lägg till ny kund',
+            style: 'background-color: #17851B; color: #fff; border-radius: 4px;',
             handler: function() {
                 // Create a new instance of the form
                 var form = Ext.create('MyExtGenApp.view.personal.PersonForm', {
                     floating: true,
                     modal: true,
-                    centered: true
+                    centered: true,
+                    id: 'myForm'
                 });
 
                 // Add the form to the application's viewport
@@ -76,9 +79,11 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
                 form.show();
             }
         },
+        '->',
         {
             xtype: 'textfield',
             emptyText: 'Search...',
+            style: 'margin: 0 16px; background-color: #0001; border-radius: 4px; padding: 4px 0 4px 4px;',
             triggers: {
                 search: {
                     cls: 'x-fa fa-search',
