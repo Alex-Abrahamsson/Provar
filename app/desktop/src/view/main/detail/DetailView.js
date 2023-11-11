@@ -155,32 +155,27 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                             margin: 16,
                             style: 'background-color: #ff0000; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                var detailView =
-                                    Ext.ComponentQuery.query('detailview')[0];
-                                var selectedPerson = detailView
-                                    .getViewModel()
-                                    .get('selectedPerson');
-
-                                // Send a DELETE request to the server
-                                Ext.Ajax.request({
-                                    url:
-                                        'http://localhost:3000/items/' +
-                                        selectedPerson.id,
-                                    method: 'DELETE',
-                                    success: function (response) {
-                                        console.log(
-                                            'Person deleted successfully'
-                                        );
-                                    },
-                                    failure: function (response) {
-                                        console.log(
-                                            'An error occurred: ' +
-                                                response.responseText
-                                        );
-                                    },
+                                var detailView = Ext.ComponentQuery.query('detailview')[0];
+                                var selectedPerson = detailView.getViewModel().get('selectedPerson');
+                        
+                                // Show a confirmation dialog
+                                Ext.Msg.confirm('Confirmation', 'Are you sure you want to delete this person?', function (choice) {
+                                    if (choice === 'yes') {
+                                        // If the user confirmed, send a DELETE request to the server
+                                        Ext.Ajax.request({
+                                            url: 'http://localhost:3000/items/' + selectedPerson.id,
+                                            method: 'DELETE',
+                                            success: function (response) {
+                                                console.log('Person deleted successfully');
+                                            },
+                                            failure: function (response) {
+                                                console.log('An error occurred: ' + response.responseText);
+                                            },
+                                        });
+                                    }
                                 });
                             },
-                        },
+                        }
                     ],
                 },
             ],

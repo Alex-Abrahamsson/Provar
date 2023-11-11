@@ -1,20 +1,6 @@
 {
   "items": [
     {
-      "id": 1,
-      "firstName": "Alex",
-      "lastName": "Abrahamsson",
-      "company": "Intel",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 2,
-      "firstName": "Marié",
-      "lastName": "Sundberg",
-      "company": "Google",
-      "createdAt": "10-11-2023"
-    },
-    {
       "id": 3,
       "firstName": "Lennox",
       "lastName": "Abrahamsson",
@@ -90,6 +76,13 @@
       "firstName": "Slaske",
       "lastName": "1",
       "company": "Epic"
+    },
+    {
+      "id": "1699741728821",
+      "createdAt": "2023-11-11T22:28:48.821Z",
+      "firstName": "Fredrik",
+      "lastName": "Karlsson",
+      "company": "Nvidia"
     }
   ]
 }
