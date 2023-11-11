@@ -9,12 +9,12 @@ Ext.define('MyExtGenApp.view.personal.PersonForm', {
         {
             xtype: 'textfield',
             name: 'firstName',
-            fieldLabel: 'Förnamn'
+            fieldLabel: 'Förnamn',
         },
         {
             xtype: 'textfield',
             name: 'lastName',
-            fieldLabel: 'Efternamn'
+            fieldLabel: 'Efternamn',
         },
         {
             xtype: 'combobox',
@@ -22,30 +22,30 @@ Ext.define('MyExtGenApp.view.personal.PersonForm', {
             fieldLabel: 'Företag',
             store: {
                 data: [
-                    {company: 'Oklart'},
-                    {company: 'Goodle'},
-                    {company: 'Apple'},
-                    {company: 'Intel'},
-                    {company: 'Nvidia'},
-                    {company: 'Epic'},
-                    {company: 'Blizzard'},
-                    {company: 'Gavlegårdarna'},
-                    {company: 'Balder'},
-                    {company: 'Sbab'},
-                    {company: 'SEB'}
-                ]
+                    { company: 'Oklart' },
+                    { company: 'Goodle' },
+                    { company: 'Apple' },
+                    { company: 'Intel' },
+                    { company: 'Nvidia' },
+                    { company: 'Epic' },
+                    { company: 'Blizzard' },
+                    { company: 'Gavlegårdarna' },
+                    { company: 'Balder' },
+                    { company: 'Sbab' },
+                    { company: 'SEB' },
+                ],
             },
             displayField: 'company',
             valueField: 'company',
             queryMode: 'local',
-            editable: false
-        }
+            editable: false,
+        },
     ],
     buttons: [
         {
             text: 'Save',
             formBind: true,
-            handler: function() {
+            handler: function () {
                 var form = this.up('#myFormContainer').down('form');
                 if (form) {
                     var formInstance = form.getForm();
@@ -57,13 +57,16 @@ Ext.define('MyExtGenApp.view.personal.PersonForm', {
                 } else {
                     console.error('Form container not found');
                 }
-            }
+            },
         },
         {
             text: 'Cancel',
-            handler: function() {
+            handler: function () {
                 this.up('panel').destroy();
-            }
-        }
-    ]
-})
+            },
+        },
+    ],
+});
+
+
+// Fick aldrig detta att lira

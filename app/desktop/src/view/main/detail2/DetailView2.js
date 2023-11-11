@@ -28,7 +28,7 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    flex:1,
+                                    flex: 1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     placeholder: 'Förnamn...',
                                 },
@@ -45,7 +45,7 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    flex:1,
+                                    flex: 1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     placeholder: 'Efternamn...',
                                 },
@@ -62,7 +62,7 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                                 },
                                 {
                                     xtype: 'combobox',
-                                    flex:1,
+                                    flex: 1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     store: {
                                         data: [
@@ -99,24 +99,33 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                             margin: 16,
                             style: 'background-color: #17851B; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                // Get the DetailView2 instance
-                                var detailView2 = Ext.ComponentQuery.query('detailview2')[0];
-                        
-                                // Get the input data from the fields
-                                var firstName = detailView2.down('textfield[placeholder="Förnamn..."]').getValue();
-                                var lastName = detailView2.down('textfield[placeholder="Efternamn..."]').getValue();
-                                var company = detailView2.down('combobox').getValue();
-                        
-                                // Create a new person object with the input data, an ID, and a createdAt timestamp
+                                // Hämta detailView2 instansen
+                                var detailView2 =
+                                    Ext.ComponentQuery.query('detailview2')[0];
+
+                                // Hämta input data från textfält och combobox
+                                var firstName = detailView2
+                                    .down('textfield[placeholder="Förnamn..."]')
+                                    .getValue();
+                                var lastName = detailView2
+                                    .down(
+                                        'textfield[placeholder="Efternamn..."]'
+                                    )
+                                    .getValue();
+                                var company = detailView2
+                                    .down('combobox')
+                                    .getValue();
+
+                                // Skapa ett kund objekt med input data från textfält och combobox samt ett unikt ID och dagens datum
                                 var newPerson = {
-                                    id: Date.now().toString(), // Generate a unique ID
-                                    createdAt: new Date().toISOString(), // Get the current date and time in ISO format
+                                    id: Date.now().toString(), // Datum nanosekunder som ID
+                                    createdAt: new Date().toLocaleDateString(), // Formatera datum till ISO format
                                     firstName: firstName,
                                     lastName: lastName,
-                                    company: company
+                                    company: company,
                                 };
-                        
-                                // Send a POST request to the server to create a new record
+
+                                // Skicka en POST request till servern med det nya kund objektet
                                 Ext.Ajax.request({
                                     url: 'http://localhost:3000/items',
                                     method: 'POST',
@@ -125,7 +134,10 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                                         console.log('Data added successfully');
                                     },
                                     failure: function (response) {
-                                        console.log('An error occurred: ' + response.responseText);
+                                        console.log(
+                                            'An error occurred: ' +
+                                                response.responseText
+                                        );
                                     },
                                 });
                             },
@@ -137,11 +149,12 @@ Ext.define('MyExtGenApp.view.main.detail2.DetailView2', {
                             margin: 16,
                             style: 'background-color: #ff0000; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                // Get the MainView instance
-                                var mainView = Ext.ComponentQuery.query('mainview')[0];
-                                // Get the ViewModel of the MainView
+                                // Hämta mainView instansen
+                                var mainView =
+                                    Ext.ComponentQuery.query('mainview')[0];
+                                // Hämta mainView instansens viewModel
                                 var vm = mainView.getViewModel();
-                                // Set the detail2Collapsed property
+                                // Sätt detail2Collapsed till true
                                 vm.set('detail2Collapsed', true);
                             },
                         },

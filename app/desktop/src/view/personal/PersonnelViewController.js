@@ -13,10 +13,10 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelViewController', {
         mainViewController.onItemSelectedShowDetail();
     },
 
+    // Skickar igenom här bara för arr komma åt mainViewController
     handleAddNewCustomer: function() {
         var mainViewController = Ext.ComponentQuery.query('mainview')[0]
             .getController();
         mainViewController.onAddNewCustomer();
     }
-
 });

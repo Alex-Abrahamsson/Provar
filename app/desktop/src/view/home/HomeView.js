@@ -3,38 +3,16 @@ Ext.define('MyExtGenApp.view.home.HomeView', {
     cls: 'homeview',
     controller: { type: 'homeviewcontroller' },
     viewModel: { type: 'homeviewmodel' },
-    requires: ['Ext.List'],
     extend: 'Ext.Container',
     scrollable: true,
-    layout: 'vbox', // Adjust the layout to vertical box
+    layout: {
+        type: 'vbox',
+        align: 'center',
+        pack: 'center'
+    }, 
 
     items: [{
-        xtype: 'list',
-        itemTpl: '<div>{name}</div>',
-        store: {
-            fields: ['name'],
-            data: [
-                { name: 'John Doe' },
-                { name: 'Jane Doe' },
-				{ name: 'Jimmy Doe' },
-				{ name: 'Jenny Doe' },
-				{ name: 'Jerry Doe' },
-				{ name: 'Jill Doe' },
-				{ name: 'Jack Doe' },
-				{ name: 'Jesse Doe' },
-				{ name: 'Jared Doe' },
-				{ name: 'Jody Doe' },
-				{ name: 'Jules Doe' },
-				{ name: 'Judy Doe' },
-				{ name: 'Julie Doe' },
-				{ name: 'Jenna Doe' },
-				{ name: 'Jasmine Doe' },
-				{ name: 'Jocelyn Doe' },
-				{ name: 'Jolene Doe' },
-				{ name: 'Jade Doe' },
-            ]
-        }
-    }, {
         xtype: 'container',
+        html: '<h2>Detta var en testsida för komponenter</h2>'
     }]
 });

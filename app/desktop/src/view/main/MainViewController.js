@@ -85,12 +85,14 @@ Ext.define('MyExtGenApp.view.main.MainViewController', {
         }
     },
 
+    // Öppna detailview automatiskt när man väljer en kund i tabellen
     onItemSelectedShowDetail: function () {
         var vm = this.getViewModel();
 
         vm.set('detailCollapsed', false);
     },
 
+    // Öppna detailView2 automatiskt när man klickar på "Lägg till ny kund" knappen
     onAddNewCustomer: function () {
         var vm = this.getViewModel();
 

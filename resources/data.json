@@ -1,88 +1,67 @@
 {
   "items": [
     {
-      "id": 3,
-      "firstName": "Lennox",
-      "lastName": "Abrahamsson",
-      "company": "Apple",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 4,
-      "firstName": "Cissi",
-      "lastName": "Abrahamsson",
-      "company": "Intel",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 5,
-      "firstName": "Anette",
-      "lastName": "Abrahamsson",
-      "company": "Nvidia",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 6,
-      "firstName": "Axel",
-      "lastName": "Jansson",
-      "company": "Amazon",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 7,
-      "firstName": "David",
-      "lastName": "Brevik",
-      "company": "Blizzard",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 9,
-      "firstName": "Jenny",
-      "lastName": "",
-      "company": "PayPal",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 10,
-      "firstName": "Nova",
-      "lastName": "",
-      "company": "Microsoft",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": 11,
-      "firstName": "Arja",
-      "lastName": "",
-      "company": "Linkedin",
-      "createdAt": "10-11-2023"
-    },
-    {
-      "id": "ext-16",
-      "createdAt": "2023-11-11T22:10:49.469Z",
-      "firstName": "Jan",
-      "lastName": "Banan",
-      "company": "Epic"
-    },
-    {
-      "id": "id-1699741075784",
-      "createdAt": "2023-11-11T22:17:55.784Z",
-      "firstName": "Breda",
-      "lastName": "Bertilsson",
-      "company": "Blizzard"
-    },
-    {
-      "id": "1699741126498",
-      "createdAt": "2023-11-11T22:18:46.498Z",
-      "firstName": "Slaske",
-      "lastName": "1",
-      "company": "Epic"
-    },
-    {
       "id": "1699741728821",
       "createdAt": "2023-11-11T22:28:48.821Z",
       "firstName": "Fredrik",
       "lastName": "Karlsson",
       "company": "Nvidia"
+    },
+    {
+      "id": "1699744029539",
+      "createdAt": "2023-11-11T23:07:09.539Z",
+      "firstName": "Alex",
+      "lastName": "Abrahamsson",
+      "company": "Apple"
+    },
+    {
+      "id": "1699744043969",
+      "createdAt": "2023-11-11T23:07:23.969Z",
+      "firstName": "Lennox",
+      "lastName": "Abrahamsson",
+      "company": "Epic"
+    },
+    {
+      "id": "1699744071928",
+      "createdAt": "2023-11-11T23:07:51.928Z",
+      "firstName": "Marié",
+      "lastName": "Sundberg",
+      "company": "Blizzard"
+    },
+    {
+      "id": "1699744100033",
+      "createdAt": "2023-11-11T23:08:20.033Z",
+      "firstName": "Anette",
+      "lastName": "Norberg",
+      "company": "Sbab"
+    },
+    {
+      "id": "1699744122674",
+      "createdAt": "2023-11-11T23:08:42.674Z",
+      "firstName": "Cissi",
+      "lastName": "Abrahamsson",
+      "company": "Intel"
+    },
+    {
+      "id": "1699744136182",
+      "createdAt": "2023-11-11T23:08:56.182Z",
+      "firstName": "Jan",
+      "lastName": "Svensson",
+      "company": "Blizzard"
+    },
+    {
+      "id": "1699744167766",
+      "createdAt": "2023-11-11T23:09:27.766Z",
+      "firstName": "Håkan",
+      "lastName": "Abrahamsson",
+      "company": null
+    },
+    {
+      "id": "1699744334284",
+      "createdAt": "2023-11-12",
+      "firstName": "Sven",
+      "lastName": "Österlund",
+      "company": "Balder"
     }
   ]
 }

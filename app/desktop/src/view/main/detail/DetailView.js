@@ -33,7 +33,7 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    flex:1,
+                                    flex: 1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     placeholder: 'Förnamn...',
                                     bind: '{selectedPerson.firstName}',
@@ -51,7 +51,7 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    flex:1,
+                                    flex: 1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     placeholder: 'Efternamn...',
                                     bind: '{selectedPerson.lastName}',
@@ -69,7 +69,7 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                                 },
                                 {
                                     xtype: 'combobox',
-                                    flex:1,
+                                    flex: 1,
                                     style: 'margin: 4px 16px; background-color: #0001; border-radius: 4px; padding: 0 0 0 4px;',
                                     store: {
                                         data: [
@@ -127,7 +127,7 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                                     .getViewModel()
                                     .get('selectedPerson');
 
-                                // Send a PUT request to the server with the updated data
+                                // Skickar en PUT med den uppdaterade datan till json-servern
                                 Ext.Ajax.request({
                                     url:
                                         'http://localhost:3000/items/' +
@@ -140,8 +140,9 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                                         );
                                     },
                                     failure: function (response) {
+                                        console.log('Är json-server igång?');
                                         console.log(
-                                            'An error occurred: ' +
+                                            'Det blev ett fel: ' +
                                                 response.responseText
                                         );
                                     },
@@ -155,27 +156,41 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                             margin: 16,
                             style: 'background-color: #ff0000; color: #fff; border-radius: 4px;',
                             handler: function () {
-                                var detailView = Ext.ComponentQuery.query('detailview')[0];
-                                var selectedPerson = detailView.getViewModel().get('selectedPerson');
-                        
-                                // Show a confirmation dialog
-                                Ext.Msg.confirm('Confirmation', 'Are you sure you want to delete this person?', function (choice) {
-                                    if (choice === 'yes') {
-                                        // If the user confirmed, send a DELETE request to the server
-                                        Ext.Ajax.request({
-                                            url: 'http://localhost:3000/items/' + selectedPerson.id,
-                                            method: 'DELETE',
-                                            success: function (response) {
-                                                console.log('Person deleted successfully');
-                                            },
-                                            failure: function (response) {
-                                                console.log('An error occurred: ' + response.responseText);
-                                            },
-                                        });
+                                var detailView =
+                                    Ext.ComponentQuery.query('detailview')[0];
+                                var selectedPerson = detailView
+                                    .getViewModel()
+                                    .get('selectedPerson');
+
+                                // Visa en bekräftelse-dialog
+                                Ext.Msg.confirm(
+                                    'Bekräfta',
+                                    'Är du säker att du vill ta bort personen?',
+                                    function (choice) {
+                                        if (choice === 'yes') {
+                                            // Om yes, Skicka en DELETE till json-servern
+                                            Ext.Ajax.request({
+                                                url:
+                                                    'http://localhost:3000/items/' +
+                                                    selectedPerson.id,
+                                                method: 'DELETE',
+                                                success: function (response) {
+                                                    console.log(
+                                                        'Person deleted successfully'
+                                                    );
+                                                },
+                                                failure: function (response) {
+                                                    console.log(
+                                                        'An error occurred: ' +
+                                                            response.responseText
+                                                    );
+                                                },
+                                            });
+                                        }
                                     }
-                                });
+                                );
                             },
-                        }
+                        },
                     ],
                 },
             ],
