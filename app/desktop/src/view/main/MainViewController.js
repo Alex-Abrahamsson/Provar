@@ -79,6 +79,12 @@ Ext.define('MyExtGenApp.view.main.MainViewController', {
 		}
 	},
 
+	onItemSelectedShowDetail: function () {
+		var vm = this.getViewModel();
+
+		vm.set('detailCollapsed', false);
+	},
+
 	onBottomViewlogout: function () {
 		localStorage.setItem("LoggedIn", false);
 		this.getView().destroy();

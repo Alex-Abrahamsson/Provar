@@ -38,5 +38,12 @@ Ext.define('MyExtGenApp.view.main.MainView', {
             docked: 'right',
             bind: { width: '{detailview_width}' },
         },
+        {
+            xtype: 'detailview2',
+            reference: 'detailview2',
+            style: 'background-color: #0001; border: none',
+            docked: 'bottom',
+            bind: { height: '{detailview2_height}' },
+        },
     ],
 });

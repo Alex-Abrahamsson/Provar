@@ -6,6 +6,11 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelViewController', {
     onItemSelected: (sender, record) => {
         var detailView = Ext.ComponentQuery.query('detailview')[0];
         detailView.getViewModel().set('selectedPerson', record[0].data);
-        console.log('selectedPerson', record[0].data);
+
+        // Hämta mainViewController för att öppna detailview när man väljer nån i listan
+        var mainViewController = Ext.ComponentQuery.query('mainview')[0]
+            .getController();
+        mainViewController.onItemSelectedShowDetail();
     },
+
 });

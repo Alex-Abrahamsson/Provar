@@ -56,7 +56,7 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
             }
         ],
         listeners: {
-            select: 'onItemSelected'
+            select: 'onItemSelected',
         }
     }],
     tbar: [
