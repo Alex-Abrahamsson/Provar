@@ -10,6 +10,7 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelViewController', {
     // Kör denna function när man "selectar" en rad i tabellen
     onItemSelected: function (sender, record) {
         var detailView = Ext.ComponentQuery.query('detailview')[0];
-        detailView.setData(record[0].data);
+        detailView.getViewModel().set('selectedPerson', record[0].data);
+        console.log('selectedPerson', record[0].data);
     },
 });

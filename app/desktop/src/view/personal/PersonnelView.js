@@ -6,9 +6,6 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
     controller: {type: 'personnelviewcontroller'},
     viewModel: {type: 'personnelviewmodel'},
     store: {type: 'personnelviewstore'},
-    bind: {
-        selection: '{selectedPerson}'
-    },
     grouped: true,
     groupFooter: {
         xtype: 'gridsummaryrow'
