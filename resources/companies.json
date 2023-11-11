@@ -1,0 +1,48 @@
+{
+    "company": [
+        {
+            "name": "Google",
+            "location": "Mountain View"
+        },
+        {
+            "name": "Blizzard",
+            "location": "Menlo Park"
+        },
+        {
+            "name": "Apple",
+            "location": "Cupertino"
+        },
+        {
+            "name": "Amazon",
+            "location": "Seattle"
+        },
+        {
+            "name": "Microsoft",
+            "location": "Redmond"
+        },
+        {
+            "name": "LinkedIn",
+            "location": "Mountain View"
+        },
+        {
+            "name": "Uber",
+            "location": "San Francisco"
+        },
+        {
+            "name": "Tesla",
+            "location": "Palo Alto"
+        },
+        {
+            "name": "PayPal",
+            "location": "San Jose"
+        },
+        {
+            "name": "Intel",
+            "location": "Santa Clara"
+        },
+        {
+            "name": "Nvidia",
+            "location": "Santa Clara"
+        }
+    ]
+}

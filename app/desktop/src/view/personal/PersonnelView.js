@@ -49,7 +49,6 @@ Ext.define('MyExtGenApp.view.personnel.PersonnelView',{
         }
     ],
     listeners: {
-        canceledit: 'onEditCancelled',
         select: 'onItemSelected'
     }
 });

@@ -1,0 +1,15 @@
+{
+    "items": [
+        {"id": 1, "firstName": "Alex", "lastName": "Abrahamsson", "company": "Tesla", "createdAt": "10-11-2023"},
+        {"id": 2, "firstName": "Marié", "lastName": "Sundberg", "company": "Google", "createdAt": "10-11-2023"},
+        {"id": 3, "firstName": "Lennox", "lastName": "Abrahamsson", "company": "Apple", "createdAt": "10-11-2023"},
+        {"id": 4, "firstName": "Cissi", "lastName": "Abrahamsson", "company": "Intel", "createdAt": "10-11-2023"},
+        {"id": 5, "firstName": "Anette", "lastName": "Abrahamsson", "company": "Nvidia", "createdAt": "10-11-2023"},
+        {"id": 6, "firstName": "Axel", "lastName": "", "company": "Amazon", "createdAt": "10-11-2023"},
+        {"id": 7, "firstName": "Erik", "lastName": "", "company": "Blizzard", "createdAt": "10-11-2023"},
+        {"id": 8, "firstName": "Janne", "lastName": "", "company": "Uber", "createdAt": "10-11-2023"},
+        {"id": 9, "firstName": "Jenny", "lastName": "", "company": "PayPal", "createdAt": "10-11-2023"},
+        {"id": 10, "firstName": "Nova", "lastName": "", "company": "Microsoft", "createdAt": "10-11-2023"},
+        {"id": 11, "firstName": "Arja", "lastName": "", "company": "Linkedin", "createdAt": "10-11-2023"}
+    ]
+}

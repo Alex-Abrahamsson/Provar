@@ -1,40 +1,3 @@
-// Ext.define('MyExtGenApp.view.main.detail.DetailView', {
-// 	extend: 'Ext.Container',
-// 	xtype: 'detailview',
-//   cls: 'detailview',
-//   layout: 'vbox',
-//   tpl: [
-//     '<div class="detailview" style="border: 1px solid red">',
-//       '<div class="detailview-header">',
-//         '<div class="detailview-header-title">Kunduppgifter</div>',
-//         '<div class="detailview-header-title">{firstName} {lastName}</div>',
-//       '</div>',
-//       '<div class="detailview-content">',
-//         '<div class="row">',
-//           '<p>Förnamn: </p>',
-//           '<input placeholder="namn..." />',
-//         '</div>',
-//         '<div class="detailview-content-text">Företag: {company}</div>',
-//         '<div class="detailview-content-text">Skapad: {createdAt}</div>',
-//       '</div>',
-//     '</div>'
-//   ],
-//   data: {
-//     firstName: '',
-//     lastName: '',
-//     company: '',
-//     createdAt: ''
-//   },
-//   items: [
-//     {
-//         xtype: 'component',
-//         bind: {
-//             html: '<h3>{selectedPerson.firstName} {selectedPerson.lastName}</h3>'
-//         }
-//     }
-//   ]
-// })
-
 Ext.define('MyExtGenApp.view.main.detail.DetailView', {
   extend: 'Ext.Container',
   xtype: 'detailview',
@@ -60,12 +23,10 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                   items: [
                       {
                           xtype: 'container',
-                          style: 'border: 1px solid blue;',
                           layout: 'hbox',
                           items: [
                               {
                                   xtype: 'component',
-                                  style: 'margin-right: 10px;',
                                   html: '<p>Förnamn: </p>'
                               },
                               {
@@ -77,12 +38,10 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                       },
                       {
                           xtype: 'container',
-                          style: 'border: 1px solid green;',
                           layout: 'hbox',
                           items: [
                               {
                                   xtype: 'component',
-                                  style: 'margin-right: 10px;',
                                   html: '<p>Efternamn: </p>'
                               },
                               {
@@ -94,20 +53,41 @@ Ext.define('MyExtGenApp.view.main.detail.DetailView', {
                       },
                       {
                           xtype: 'container',
-                          style: 'border: 1px solid green;',
                           layout: 'hbox',
                           items: [
                               {
                                   xtype: 'component',
-                                  style: 'margin-right: 10px;',
                                   html: '<p>Företag: </p>'
                               },
                               {
-                                  xtype: 'button',
-                                  scale: 'medium',
-                                  text: 'Företag',
-                                  bind: '{selectedPerson.company}'
-                              }
+                                xtype: 'combobox',
+                                store: {
+                                    data: [
+                                        {company: 'Oklart'},
+                                        {company: 'Goodle'},
+                                        {company: 'Apple'},
+                                        {company: 'Intel'},
+                                        {company: 'Nvidia'},
+                                        {company: 'Epic'},
+                                        {company: 'Blizzard'},
+                                        {company: 'Gavlegårdarna'},
+                                        {company: 'Balder'},
+                                        {company: 'Sbab'},
+                                        {company: 'SEB'}
+                                    ]
+                                },
+                                valueField: 'company',
+                                displayField: 'company',
+                                bind: '{selectedPerson.company}',
+                                queryMode: 'local',
+                                editable: false,
+                                listeners: {
+                                    select: (combo, record, eOpts) => {
+                                    var detailView = Ext.ComponentQuery.query('detailview')[0];
+                                    detailView.getViewModel().set('selectedPerson.company', record.data.company);
+                                  }
+                                }
+                            }
                           ]
                       }
                   ]
